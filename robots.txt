@@ -1,0 +1,33 @@
+# Robots.txt for Ademola A. Website
+# https://ademola-a.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ademola-a.com/sitemap.xml
+
+# Crawl-delay (optional - for respectful crawling)
+Crawl-delay: 1
+
+# Block access to certain directories (if needed)
+# Disallow: /private/
+# Disallow: /cgi-bin/
+
+# Don't crawl these file types
+Disallow: *.json
+Disallow: *.xml
+Disallow: *.js
+Disallow: *.css
+
+# Allow CSS and JS (Google needs these)
+Allow: *.css$
+Allow: *.js$
+
+# Main pages to crawl
+Allow: /index.html
+Allow: /about.html
+Allow: /services.html
+Allow: /portfolio.html
+Allow: /reviews.html
+Allow: /contact.html

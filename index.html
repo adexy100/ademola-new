@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Apply saved theme immediately to prevent flash -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    
+    <title>Ademola A. | IT Solutions & Automation Specialist</title>
+    <meta name="description" content="IT Solutions and Automation Specialist helping businesses automate, optimize, and scale. Expert in CRM automation, AI solutions, workflow optimization, and custom IT development.">
+    <meta name="author" content="Ademola A.">
+    <meta name="keywords" content="IT solutions, automation specialist, business automation, CRM automation, AI automation, workflow optimization, IT consulting, digital transformation, GoHighLevel, Zapier, n8n">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://ademola-a.com/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Ademola A. | IT Solutions & Automation Specialist">
+    <meta property="og:description" content="Helping Businesses Automate, Optimize, and Scale. Expert IT solutions and automation services for modern businesses.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ademola-a.com/">
+    <meta property="og:site_name" content="Ademola A.">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@AdemolaA">
+    <meta name="twitter:creator" content="@AdemolaA">
+    <meta name="twitter:title" content="Ademola A. | IT Solutions & Automation Specialist">
+    <meta name="twitter:description" content="Helping Businesses Automate, Optimize, and Scale. Expert IT solutions and automation services.">
+    <meta name="twitter:image" content="https://ademola-a.com/assets/images/profile.jpg">
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    
+    <!-- Fonts with font-display swap -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+    
+    <!-- Structured Data - Person Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ademola A.",
+        "url": "https://ademola-a.com",
+        "jobTitle": "IT Solutions & Automation Specialist",
+        "description": "IT Solutions and Automation Specialist helping businesses automate, optimize, and scale",
+        "sameAs": [
+            "https://twitter.com/AdemolaA",
+            "https://linkedin.com/in/ademola-a"
+        ],
+        "knowsAbout": ["IT Solutions", "Business Automation", "GoHighLevel", "Zapier", "n8n", "Workflow Optimization", "AI Integration", "CRM Systems", "Cloud Solutions", "Custom Development"]
+    }
+    </script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                    extend: {
+                        colors: {
+                            primary: '#328990',
+                            secondary: '#3A65D3',
+                            accent: '#328990',
+                            dark: '#1e293b',
+                            light: '#f8fafc'
+                        },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-md z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-bold font-poppins text-primary">
+                        <img src="./assets/icons/profile teal.png" alt="Logo" class="h-8 w-8 rounded-full object-cover">
+                        Ademola A.
+                    </a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex space-x-8">
+                        <a href="index.html" data-link class="nav-link text-primary font-semibold">Home</a>
+                        <a href="about.html" data-link class="nav-link text-gray-700 hover:text-primary transition-colors">About</a>
+                        <a href="services.html" data-link class="nav-link text-gray-700 hover:text-primary transition-colors">Services</a>
+                        <a href="portfolio.html" data-link class="nav-link text-gray-700 hover:text-primary transition-colors">Portfolio</a>
+                        <a href="reviews.html" data-link class="nav-link text-gray-700 hover:text-primary transition-colors">Reviews</a>
+                        <a href="contact.html" data-link class="nav-link text-gray-700 hover:text-primary transition-colors">Contact</a>
+                    </div>
+                    
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle" aria-label="Toggle theme">
+                        <!-- Sun Icon -->
+                        <svg class="sun-icon w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <!-- Moon Icon -->
+                        <svg class="moon-icon w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <!-- Icon + Name Header -->
+                <a href="index.html" data-link class="flex items-center gap-2 px-3 py-3 border-b border-gray-200">
+                    <img src="./assets/icons/profile teal.png" alt="Logo" class="h-6 w-6 rounded-full object-cover">
+                    <span class="font-bold font-poppins text-primary">Ademola A.</span>
+                </a>
+                <!-- Menu Items - Left Aligned -->
+                <a href="index.html" data-link class="mobile-menu-item block px-3 py-3">Home</a>
+                <a href="about.html" data-link class="mobile-menu-item block px-3 py-3">About</a>
+                <a href="services.html" data-link class="mobile-menu-item block px-3 py-3">Services</a>
+                <a href="portfolio.html" data-link class="mobile-menu-item block px-3 py-3">Portfolio</a>
+                <a href="reviews.html" data-link class="mobile-menu-item block px-3 py-3">Reviews</a>
+                <a href="contact.html" data-link class="mobile-menu-item block px-3 py-3">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+    <section class="pt-16 min-h-screen flex items-center bg-gradient-to-br">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-6xl font-bold font-poppins mb-6">
+                    I build <span class="gradient-text">IT solutions & automation</span> that help businesses scale.
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Helping B2B and B2C businesses automate, optimize, and scale through intelligent technology solutions and workflow automation.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" data-link class="btn-primary text-white px-8 py-4 rounded-lg font-semibold">
+                        Book a Call
+                    </a>
+                    <a href="services.html" data-link class="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors">
+                        View Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold font-poppins mb-6">About Me</h2>
+                    <p class="text-lg text-gray-600 mb-4">
+                        I'm an IT Solutions and Automation Specialist dedicated to helping businesses work smarter, not harder. With expertise in enterprise automation platforms, custom integrations, and digital transformation, I create solutions that save hours of manual work while increasing revenue and improving customer experiences.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Whether you need to streamline your IT infrastructure, automate business workflows, or build custom solutions, I've got you covered.
+                    </p>
+                    <a href="about.html" class="text-primary font-semibold hover:text-secondary transition-colors">
+                        Learn More About Me →
+                    </a>
+                </div>
+                <div class="flex items-center justify-center">
+                    <div class="bg-gradient-to-br from-primary to-secondary p-8 rounded-2xl shadow-xl">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl">
+                            <div class="text-center">
+                                <img src="./assets/images/profile.jpg" alt="Ademola A. - IT Solutions & Automation Specialist" class="w-48 h-48 mx-auto rounded-full object-cover mb-4 shadow-lg" style="border: 4px solid white;" loading="lazy" width="192" height="192">
+                                <p class="text-xl font-semibold">IT Solutions & Automation Specialist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold font-poppins mb-4">Tools & Technologies I Use</h2>
+                <p class="text-lg text-gray-600">Cutting-edge platforms and technologies to transform your business</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                <div class="bg-white p-5 rounded-xl shadow-md hover:shadow-lg transition-all text-center border border-gray-100 flex flex-col items-center">
+                    <span class="h-12 w-12 mb-3 flex items-center justify-center text-2xl font-bold text-gray-700 dark:text-gray-300">GHL</span>
+                    <p class="font-semibold text-sm">GoHighLevel</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-md hover:shadow-lg transition-all text-center border border-gray-100 flex flex-col items-center tool-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/zapier.svg" alt="Zapier" class="h-12 w-12 mb-3 dark:invert" loading="lazy">
+                    <p class="font-semibold text-sm">Zapier</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-md hover:shadow-lg transition-all text-center border border-gray-100 flex flex-col items-center tool-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/n8n.svg" alt="n8n" class="h-12 w-12 mb-3 dark:invert" loading="lazy">
+                    <p class="font-semibold text-sm">n8n</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-md hover:shadow-lg transition-all text-center border border-gray-100 flex flex-col items-center">
+                    <span class="h-12 w-12 mb-3 flex items-center justify-center text-2xl font-bold text-gray-700 dark:text-gray-300">AWS</span>
+                    <p class="font-semibold text-sm">AWS</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-md hover:shadow-lg transition-all text-center border border-gray-100 flex flex-col items-center tool-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/docker.svg" alt="Docker" class="h-12 w-12 mb-3 dark:invert" loading="lazy">
+                    <p class="font-semibold text-sm">Docker</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-md hover:shadow-lg transition-all text-center border border-gray-100 flex flex-col items-center tool-icon">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/python.svg" alt="Python" class="h-12 w-12 mb-3 dark:invert" loading="lazy">
+                    <p class="font-semibold text-sm">Python</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold font-poppins mb-4">Results That Matter</h2>
+                <p class="text-lg text-gray-600">Proven impact on businesses like yours</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-primary mb-2">40+</div>
+                    <p class="text-lg font-semibold">Businesses Transformed</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-primary mb-2">10-20 hrs</div>
+                    <p class="text-lg font-semibold">Saved Weekly</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-primary mb-2">300%</div>
+                    <p class="text-lg font-semibold">Avg. ROI Increase</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-secondary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold font-poppins text-white mb-6">Ready to Automate Your Business?</h2>
+            <p class="text-xl text-blue-100 mb-8">
+                Let's discuss how automation can transform your workflow and boost your revenue.
+            </p>
+            <a href="contact.html" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-xl">
+                Get Started Today
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content End -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12" role="contentinfo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold font-poppins mb-4">Ademola A.</h3>
+                <p class="text-gray-400 mb-6">IT Solutions & Automation Specialist</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <!-- Twitter -->
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Twitter">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+                        </svg>
+                    </a>
+                    <!-- GitHub -->
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                </div>
+                <p class="text-gray-500 text-sm">
+                    © 2026 Ademola A. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="./js/router.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

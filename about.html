@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Apply saved theme immediately to prevent flash -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    
+    <title>About | Ademola A. - IT Solutions & Automation Specialist</title>
+    <meta name="description" content="Learn more about Ademola A., an IT Solutions and Automation Specialist helping businesses transform through intelligent automation and digital solutions.">
+    <meta name="author" content="Ademola A.">
+    <meta name="keywords" content="about Ademola, IT solutions specialist, automation expert, business transformation, digital transformation">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ademola-a.com/about.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="About | Ademola A. - IT Solutions & Automation Specialist">
+    <meta property="og:description" content="Learn more about Ademola A., an IT Solutions and Automation Specialist helping businesses transform through intelligent automation.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ademola-a.com/about.html">
+    <meta property="og:site_name" content="Ademola A.">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@AdemolaA">
+    <meta name="twitter:creator" content="@AdemolaA">
+    <meta name="twitter:title" content="About | Ademola A. - IT Solutions & Automation Specialist">
+    <meta name="twitter:description" content="Learn more about Ademola A., an IT Solutions and Automation Specialist.">
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    
+    <!-- Fonts with font-display swap -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+    
+    <!-- Structured Data - Person Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ademola A.",
+        "url": "https://ademola-a.com/about",
+        "jobTitle": "IT Solutions & Automation Specialist",
+        "description": "IT Solutions and Automation Specialist helping businesses automate, optimize, and scale",
+        "sameAs": [
+            "https://twitter.com/AdemolaA",
+            "https://linkedin.com/in/ademola-a"
+        ]
+    }
+    </script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                    extend: {
+                        colors: {
+                            primary: '#328990',
+                            secondary: '#3A65D3',
+                            accent: '#328990',
+                            dark: '#1e293b',
+                            light: '#f8fafc'
+                        },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-md z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-bold font-poppins text-primary">
+                        <img src="./assets/icons/profile teal.png" alt="Logo" class="h-8 w-8 rounded-full object-cover">
+                        Ademola A.
+                    </a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex space-x-8">
+                        <a href="index.html" data-link class="nav-link text-gray-700 hover:text-primary transition-colors">Home</a>
+                        <a href="about.html" data-link class="nav-link text-primary font-semibold">About</a>
+                        <a href="services.html" data-link class="nav-link text-gray-700 hover:text-primary transition-colors">Services</a>
+                        <a href="portfolio.html" data-link class="nav-link text-gray-700 hover:text-primary transition-colors">Portfolio</a>
+                        <a href="reviews.html" data-link class="nav-link text-gray-700 hover:text-primary transition-colors">Reviews</a>
+                        <a href="contact.html" data-link class="nav-link text-gray-700 hover:text-primary transition-colors">Contact</a>
+                    </div>
+                    
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle" aria-label="Toggle theme">
+                        <!-- Sun Icon -->
+                        <svg class="sun-icon w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <!-- Moon Icon -->
+                        <svg class="moon-icon w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <!-- Icon + Name Header -->
+                <a href="index.html" data-link class="flex items-center gap-2 px-3 py-3 border-b border-gray-200">
+                    <img src="./assets/icons/profile teal.png" alt="Logo" class="h-6 w-6 rounded-full object-cover">
+                    <span class="font-bold font-poppins text-primary">Ademola A.</span>
+                </a>
+                <!-- Menu Items - Left Aligned -->
+                <a href="index.html" data-link class="mobile-menu-item block px-3 py-3">Home</a>
+                <a href="about.html" data-link class="mobile-menu-item block px-3 py-3">About</a>
+                <a href="services.html" data-link class="mobile-menu-item block px-3 py-3">Services</a>
+                <a href="portfolio.html" data-link class="mobile-menu-item block px-3 py-3">Portfolio</a>
+                <a href="reviews.html" data-link class="mobile-menu-item block px-3 py-3">Reviews</a>
+                <a href="contact.html" data-link class="mobile-menu-item block px-3 py-3">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+    <section class="pt-16 min-h-screen flex items-center bg-gradient-to-br">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center mb-16">
+                <h1 class="text-5xl md:text-6xl font-bold font-poppins mb-6">
+                    About <span class="gradient-text">Ademola A.</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+                    Your trusted partner in IT solutions and business automation
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h2 class="text-3xl font-bold font-poppins mb-6">My Mission</h2>
+                    <p class="text-lg text-gray-600 mb-4">
+                        I'm passionate about helping businesses unlock their full potential through intelligent IT solutions and automation. In today's fast-paced digital landscape, manual processes and disconnected systems are holding businesses back from reaching their true growth potential.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        My mission is simple: to transform how businesses operate by implementing smart, scalable technology solutions that save time, increase revenue, and enhance customer experiences.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-primary text-white px-6 py-3 rounded-lg font-semibold">
+                            5+ Years Experience
+                        </div>
+                        <div class="bg-gradient-to-br from-primary to-secondary text-white px-6 py-3 rounded-lg font-semibold">
+                            40+ Happy Clients
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center">
+                    <div class="bg-gradient-to-br from-primary to-secondary p-8 rounded-2xl shadow-xl">
+                        <div class="bg-white p-8 rounded-xl">
+                            <div class="text-center">
+                                <img src="./assets/images/profile.jpg" alt="Ademola A. - IT Solutions & Automation Specialist" class="w-48 h-48 mx-auto rounded-full object-cover mb-4 shadow-lg" style="border: 4px solid white;" loading="lazy" width="192" height="192">
+                                <p class="text-xl font-semibold">Automation Specialist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expertise Section -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold font-poppins text-center mb-12">Core Expertise</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="text-4xl mb-4 text-primary">🤖</div>
+                        <h3 class="text-xl font-bold mb-3">Business Automation</h3>
+                        <p class="text-gray-600">Intelligent workflow automation using cutting-edge technologies to streamline complex business processes and eliminate repetitive tasks.</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="text-4xl mb-4 text-primary">🎯</div>
+                        <h3 class="text-xl font-bold mb-3">IT Solutions</h3>
+                        <p class="text-gray-600">End-to-end technology solutions including system integration, cloud infrastructure, and custom software development.</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="text-4xl mb-4 text-primary">⚡</div>
+                        <h3 class="text-xl font-bold mb-3">Digital Transformation</h3>
+                        <p class="text-gray-600">Modernizing legacy systems and processes to help businesses compete in the digital age with scalable solutions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Story Section -->
+            <div class="bg-gray-50 dark:bg-gray-800 p-12 rounded-2xl shadow-xl">
+                <h2 class="text-3xl font-bold font-poppins mb-6">My Journey</h2>
+                <p class="text-lg text-gray-600 mb-4">
+                    My journey into IT solutions and automation began when I saw countless businesses struggling with repetitive, time-consuming tasks that were preventing them from focusing on what really matters – growing their business and serving their customers.
+                </p>
+                <p class="text-lg text-gray-600 mb-4">
+                    Over the years, I've had the privilege of working with over 40 businesses across various industries, helping them transform their operations through custom automation solutions and IT infrastructure. From small startups to established enterprises, I've seen firsthand how the right technology strategy can revolutionize a business.
+                </p>
+                <p class="text-lg text-gray-600">
+                    Every project I undertake is driven by a simple philosophy: technology should serve people, not replace them. My solutions are designed to augment human capabilities, freeing up your team to focus on creative, strategic, and relationship-building activities that truly drive business growth.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-secondary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold font-poppins text-white mb-6">Let's Transform Your Business Together</h2>
+            <p class="text-xl text-blue-100 mb-8">
+                Ready to see how automation can revolutionize your operations?
+            </p>
+            <a href="contact.html" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-xl">
+                Schedule a Consultation
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content End -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12" role="contentinfo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold font-poppins mb-4">Ademola A.</h3>
+                <p class="text-gray-400 mb-6">IT Solutions & Automation Specialist</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <!-- Twitter -->
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Twitter">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+                        </svg>
+                    </a>
+                    <!-- GitHub -->
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                </div>
+                <p class="text-gray-500 text-sm">
+                    © 2026 Ademola A. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="./js/router.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Apply saved theme immediately to prevent flash -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    
+    <title>404 - Page Not Found | Ademola A.</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Return to Ademola A. - IT Solutions & Automation Specialist">
+    <meta name="robots" content="noindex, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="404 - Page Not Found | Ademola A.">
+    <meta property="og:description" content="The page you're looking for doesn't exist.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ademola-a.com/404.html">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="404 - Page Not Found">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#328990',
+                        secondary: '#3A65D3',
+                        dark: '#1e293b'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #328990, #3A65D3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-bold font-poppins text-primary">
+                        <img src="./assets/icons/profile teal.png" alt="Logo" class="h-8 w-8 rounded-full object-cover">
+                        Ademola A.
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary transition-colors">About</a>
+                    <a href="services.html" class="text-gray-700 hover:text-primary transition-colors">Services</a>
+                    <a href="portfolio.html" class="text-gray-700 hover:text-primary transition-colors">Portfolio</a>
+                    <a href="reviews.html" class="text-gray-700 hover:text-primary transition-colors">Reviews</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="min-h-screen flex items-center justify-center pt-16">
+        <div class="text-center px-4">
+            <div class="text-9xl font-bold text-primary mb-4">404</div>
+            <h1 class="text-4xl font-bold font-poppins mb-4">Page Not Found</h1>
+            <p class="text-xl text-gray-600 mb-8 max-w-md mx-auto">
+                Oops! The page you're looking for doesn't exist or has been moved.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html" class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary transition-colors">
+                    Go Home
+                </a>
+                <a href="contact.html" class="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors">
+                    Contact Me
+                </a>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="mt-16">
+                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="services.html" class="text-primary hover:underline">Services</a>
+                    <a href="portfolio.html" class="text-primary hover:underline">Portfolio</a>
+                    <a href="reviews.html" class="text-primary hover:underline">Reviews</a>
+                    <a href="contact.html" class="text-primary hover:underline">Contact</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2026 Ademola A. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

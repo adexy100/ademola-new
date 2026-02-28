@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Apply saved theme immediately to prevent flash -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    
+    <title>Portfolio | Ademola A. - IT Solutions & Automation Projects</title>
+    <meta name="description" content="Explore our portfolio of successful IT solutions and automation projects. See how we've helped businesses save time, reduce costs, and scale through intelligent technology.">
+    <meta name="author" content="Ademola A.">
+    <meta name="keywords" content="portfolio, IT solutions projects, automation case studies, business transformation examples, custom software projects">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ademola-a.com/portfolio.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Portfolio | Ademola A. - IT Solutions & Automation Projects">
+    <meta property="og:description" content="Explore our portfolio of successful IT solutions and automation projects. See how we've helped businesses transform.">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@AdemolaA">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#328990',
+                        secondary: '#3A65D3',
+                        accent: '#328990',
+                        dark: '#1e293b',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-md z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center gap-2 text-2xl font-bold font-poppins text-primary">
+                        <img src="./assets/icons/profile teal.png" alt="Logo" class="h-8 w-8 rounded-full object-cover">
+                        Ademola A.
+                    </a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex space-x-8">
+                        <a href="index.html" data-link class="nav-link text-gray-700 hover:text-primary transition-colors">Home</a>
+                        <a href="about.html" data-link class="nav-link text-gray-700 hover:text-primary transition-colors">About</a>
+                        <a href="services.html" data-link class="nav-link text-gray-700 hover:text-primary transition-colors">Services</a>
+                        <a href="portfolio.html" data-link class="nav-link text-primary font-semibold">Portfolio</a>
+                        <a href="reviews.html" data-link class="nav-link text-gray-700 hover:text-primary transition-colors">Reviews</a>
+                        <a href="contact.html" data-link class="nav-link text-gray-700 hover:text-primary transition-colors">Contact</a>
+                    </div>
+                    
+                    <!-- Theme Toggle -->
+                    <button class="theme-toggle" aria-label="Toggle theme">
+                        <!-- Sun Icon -->
+                        <svg class="sun-icon w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <!-- Moon Icon -->
+                        <svg class="moon-icon w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <!-- Icon + Name Header -->
+                <a href="index.html" class="flex items-center gap-2 px-3 py-3 border-b border-gray-200">
+                    <img src="./assets/icons/profile teal.png" alt="Logo" class="h-6 w-6 rounded-full object-cover">
+                    <span class="font-bold font-poppins text-primary">Ademola A.</span>
+                </a>
+                <!-- Menu Items - Left Aligned -->
+                <a href="index.html" data-link class="mobile-menu-item block px-3 py-3">Home</a>
+                <a href="about.html" data-link class="mobile-menu-item block px-3 py-3">About</a>
+                <a href="services.html" data-link class="mobile-menu-item block px-3 py-3">Services</a>
+                <a href="portfolio.html" data-link class="mobile-menu-item block px-3 py-3">Portfolio</a>
+                <a href="reviews.html" data-link class="mobile-menu-item block px-3 py-3">Reviews</a>
+                <a href="contact.html" data-link class="mobile-menu-item block px-3 py-3">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+    <!-- Hero Section -->
+    <section class="pt-16 min-h-screen flex items-center bg-gradient-to-br">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center mb-16">
+                <h1 class="text-5xl md:text-6xl font-bold font-poppins mb-6">
+                    Success <span class="gradient-text">Portfolio</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+                    Real results from real businesses that transformed their operations through IT solutions and automation
+                </p>
+            </div>
+
+            <!-- Portfolio Stats -->
+            <div class="grid md:grid-cols-4 gap-8 mb-16">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-primary mb-2 stat-number" data-target="40">0</div>
+                    <p class="text-lg font-semibold">Projects Completed</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-primary mb-2 stat-number" data-target="85">0</div>
+                    <p class="text-lg font-semibold">Avg. Efficiency Gain %</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-primary mb-2 stat-number" data-target="300">0</div>
+                    <p class="text-lg font-semibold">Avg. ROI Increase %</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-primary mb-2 stat-number" data-target="100">0</div>
+                    <p class="text-lg font-semibold">Client Satisfaction %</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-8 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-btn px-6 py-2 rounded-full border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-all active" data-filter="all">
+                    All Projects
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-600 font-semibold hover:border-primary hover:text-primary transition-all" data-filter="automation">
+                    Business Automation
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-600 font-semibold hover:border-primary hover:text-primary transition-all" data-filter="integration">
+                    System Integration
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-600 font-semibold hover:border-primary hover:text-primary transition-all" data-filter="crm">
+                    CRM Solutions
+                </button>
+                <button class="filter-btn px-6 py-2 rounded-full border-2 border-gray-300 text-gray-600 font-semibold hover:border-primary hover:text-primary transition-all" data-filter="development">
+                    Custom Development
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="portfolio-grid">
+                <!-- Project 1: Real Estate CRM -->
+                <div class="portfolio-item bg-white rounded-xl shadow-lg overflow-hidden fade-in" data-category="crm">
+                    <div class="relative h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                        <div class="text-6xl text-white">🏠</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold font-poppins mb-2">Real Estate Agency CRM</h3>
+                        <p class="text-gray-600 mb-4">
+                            Complete CRM automation for a 20-agent real estate team, including lead capture, automated follow-ups, and pipeline management.
+                        </p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-2">GoHighLevel</span>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-2">Zapier</span>
+                            <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">Email Marketing</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm">
+                                <span class="text-green-600 font-semibold">+40% Conversion Rate</span>
+                            </div>
+                            <button class="text-primary font-semibold hover:text-secondary">
+                                View Details →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: E-commerce Integration -->
+                <div class="portfolio-item bg-white rounded-xl shadow-lg overflow-hidden fade-in" data-category="integration">
+                    <div class="relative h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                        <div class="text-6xl text-white">🛒</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold font-poppins mb-2">E-commerce System Integration</h3>
+                        <p class="text-gray-600 mb-4">
+                            Integrated multiple systems for an online store including inventory management, payment processing, and customer support.
+                        </p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-2">API Development</span>
+                            <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full mr-2">Python</span>
+                            <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Shopify</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm">
+                                <span class="text-green-600 font-semibold">-60% Manual Work</span>
+                            </div>
+                            <button class="text-primary font-semibold hover:text-secondary">
+                                View Details →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Coaching Business Automation -->
+                <div class="portfolio-item bg-white rounded-xl shadow-lg overflow-hidden fade-in" data-category="automation">
+                    <div class="relative h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                        <div class="text-6xl text-white">🎯</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold font-poppins mb-2">Business Automation Suite</h3>
+                        <p class="text-gray-600 mb-4">
+                            End-to-end automation for a coaching business including client onboarding, scheduling, payment processing, and progress tracking.
+                        </p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full mr-2">Make.com</span>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-2">Calendly</span>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Stripe</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm">
+                                <span class="text-green-600 font-semibold">+25 Hours/Week Saved</span>
+                            </div>
+                            <button class="text-primary font-semibold hover:text-secondary">
+                                View Details →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Manufacturing Integration -->
+                <div class="portfolio-item bg-white rounded-xl shadow-lg overflow-hidden fade-in" data-category="integration">
+                    <div class="relative h-48 bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center">
+                        <div class="text-6xl text-white">🏭</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold font-poppins mb-2">Manufacturing System Integration</h3>
+                        <p class="text-gray-600 mb-4">
+                            Inventory management and order processing integration for a manufacturing company with real-time tracking and alerts.
+                        </p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded-full mr-2">n8n</span>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-2">Airtable</span>
+                            <span class="inline-block bg-gray-100 text-gray-800 text-xs px-2 py-1 rounded-full">Slack</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm">
+                                <span class="text-green-600 font-semibold">-90% Manual Data Entry</span>
+                            </div>
+                            <button class="text-primary font-semibold hover:text-secondary">
+                                View Details →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: SaaS Lead Generation -->
+                <div class="portfolio-item bg-white rounded-xl shadow-lg overflow-hidden fade-in" data-category="crm">
+                    <div class="relative h-48 bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center">
+                        <div class="text-6xl text-white">🚀</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold font-poppins mb-2">SaaS Lead Generation System</h3>
+                        <p class="text-gray-600 mb-4">
+                            Automated lead qualification and nurturing system for a B2B SaaS company with intelligent scoring and personalized outreach.
+                        </p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-2">HubSpot</span>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-2">Make.com</span>
+                            <span class="inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">Custom API</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm">
+                                <span class="text-green-600 font-semibold">+300% Qualified Leads</span>
+                            </div>
+                            <button class="text-primary font-semibold hover:text-secondary">
+                                View Details →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Healthcare Scheduling -->
+                <div class="portfolio-item bg-white rounded-xl shadow-lg overflow-hidden fade-in" data-category="development">
+                    <div class="relative h-48 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center">
+                        <div class="text-6xl text-white">🏥</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold font-poppins mb-2">Healthcare Appointment System</h3>
+                        <p class="text-gray-600 mb-4">
+                            Custom patient scheduling and reminder system for a medical clinic with automated intake forms and follow-ups.
+                        </p>
+                        <div class="mb-4">
+                            <span class="inline-block bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full mr-2">Custom Development</span>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-2">Twilio</span>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">HIPAA Compliant</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="text-sm">
+                                <span class="text-green-600 font-semibold">-80% No-Show Rate</span>
+                            </div>
+                            <button class="text-primary font-semibold hover:text-secondary">
+                                View Details →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Case Study Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold font-poppins mb-4">Featured Case Study</h2>
+                <p class="text-lg text-gray-600">Deep dive into our most successful automation project</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-primary to-secondary rounded-2xl p-8 md:p-12">
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-12">
+                    <div>
+                        <div class="inline-block bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                            E-commerce • Chatbot • CRM
+                        </div>
+                        <h3 class="text-3xl font-bold font-poppins mb-4">Premium Fashion Brand Transformation</h3>
+                        <p class="text-lg text-blue-100 mb-6">
+                            A luxury fashion retailer struggling with customer service bottlenecks and abandoned shopping carts needed a comprehensive automation solution.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">✓</span>
+                                <span class="text-gray-700">Implemented 24/7 AI customer service</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">✓</span>
+                                <span class="text-gray-700">Automated abandoned cart recovery</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">✓</span>
+                                <span class="text-gray-700">Integrated inventory management</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">✓</span>
+                                <span class="text-gray-700">Personalized product recommendations</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="bg-white rounded-xl p-8 shadow-lg">
+                            <h4 class="text-xl font-bold mb-6">Results After 6 Months</h4>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-gray-600">Revenue Increase</span>
+                                        <span class="font-bold text-teal-600">+65%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 65%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-gray-600">Customer Satisfaction</span>
+                                        <span class="font-bold text-teal-600">+45%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 45%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-gray-600">Support Response Time</span>
+                                        <span class="font-bold text-teal-600">-85%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span class="text-gray-600">Cart Recovery Rate</span>
+                                        <span class="font-bold text-teal-600">+180%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <blockquote class="text-xl text-gray-700 italic mb-6">
+                        "The automation system transformed our entire customer experience. We're seeing record sales while providing better service than ever before."
+                    </blockquote>
+                    <div class="font-semibold">Sarah Johnson</div>
+                    <div class="text-blue-100">CEO, Luxe Fashion House</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-secondary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold font-poppins text-white mb-6">Ready to Create Your Success Story?</h2>
+            <p class="text-xl text-blue-100 mb-8">
+                Let's discuss how we can achieve similar results for your business.
+            </p>
+            <a href="contact.html" data-link class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-xl">
+                Start Your Project
+            </a>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12" role="contentinfo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold font-poppins mb-4">Ademola A.</h3>
+                <p class="text-gray-400 mb-6">IT Solutions & Automation Specialist</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <!-- Twitter -->
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Twitter">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </a>
+                    <!-- Facebook -->
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <!-- Instagram -->
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+                        </svg>
+                    </a>
+                    <!-- GitHub -->
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                </div>
+                <p class="text-gray-500 text-sm">
+                    © 2026 Ademola A. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="./js/router.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
