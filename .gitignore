@@ -1,0 +1,21 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build / dependency directories
+dist/
+build/
+
+# IDE files
+.vscode/
+
+# Temporary files
+*.tmp
+*.temp
