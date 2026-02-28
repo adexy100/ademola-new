@@ -51,6 +51,7 @@ class ThemeManager {
         }
     }
 
+    // Export for SPA router
     addThemeToggle() {
         const themeToggle = document.querySelector('.theme-toggle');
         if (themeToggle) {
@@ -389,3 +390,10 @@ const utils = {
 
 // Export utilities for use in other scripts
 window.utils = utils;
+
+// Export functions for SPA router
+window.updateThemeIcon = ThemeManager.prototype.updateThemeIcon.bind(themeManager);
+window.initPortfolioFilter = initPortfolioFilter;
+window.initStatCounters = initStatCounters;
+window.initScrollAnimations = initScrollAnimations;
+window.initFormHandling = initFormHandling;
