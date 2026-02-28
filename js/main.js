@@ -99,7 +99,8 @@ function setActiveNavLink() {
 
 // Smooth Scroll for Navigation Links
 document.addEventListener('DOMContentLoaded', () => {
-    setActiveNavLink();
+    // Initialize all page components
+    initPage();
     
     // Add smooth scroll to anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -114,15 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // Initialize animations on scroll
-    initScrollAnimations();
-    
-    // Initialize stat counters
-    initStatCounters();
-    
-    // Initialize form handling
-    initFormHandling();
 });
 
 // Scroll Animations
@@ -391,9 +383,47 @@ const utils = {
 // Export utilities for use in other scripts
 window.utils = utils;
 
+// Portfolio Detail Handlers - for clicking portfolio item buttons to scroll to case study
+function attachPortfolioDetailHandlers() {
+    const portfolioButtons = document.querySelectorAll('.portfolio-item button');
+    portfolioButtons.forEach(button => {
+        button.removeEventListener('click', portfolioScrollHandler);
+        button.addEventListener('click', portfolioScrollHandler);
+    });
+}
+
+function portfolioScrollHandler(e) {
+    e.preventDefault();
+    const caseStudySection = document.getElementById('featured-case-study');
+    if (caseStudySection) {
+        utils.scrollToElement(caseStudySection, 800);
+    }
+}
+
+// Centralized page initialization function for SPA navigation
+function initPage() {
+    // Apply theme immediately to prevent flash
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    // Initialize all page components
+    setActiveNavLink();
+    initScrollAnimations();
+    initStatCounters();
+    initFormHandling();
+    initPortfolioFilter();
+    initNavScroll();
+    attachPortfolioDetailHandlers();
+
+    // Update theme icons
+    window.updateThemeIcon(savedTheme);
+}
+
 // Export functions for SPA router
 window.updateThemeIcon = ThemeManager.prototype.updateThemeIcon.bind(themeManager);
 window.initPortfolioFilter = initPortfolioFilter;
 window.initStatCounters = initStatCounters;
 window.initScrollAnimations = initScrollAnimations;
 window.initFormHandling = initFormHandling;
+window.initPage = initPage;
+window.attachPortfolioDetailHandlers = attachPortfolioDetailHandlers;

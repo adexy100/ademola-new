@@ -214,15 +214,21 @@
 
             // Update active nav link
             this.updateActiveNav(path);
+
+            // Run page-specific initialization (animations, forms, etc)
+            if (typeof window.initPage === 'function') {
+                window.initPage();
+            }
         }
 
         updateActiveNav(path) {
-            const fileName = path.split('/').pop();
+            const fileName = path.split('/').pop().replace(/\.html$/, '');
             
             // Desktop nav
             document.querySelectorAll('.nav-link').forEach(link => {
                 const href = link.getAttribute('href');
-                if (href === fileName) {
+                const linkName = href ? href.split('/').pop().replace(/\.html$/, '') : '';
+                if (linkName === fileName) {
                     link.classList.add('text-primary', 'font-semibold');
                     link.classList.remove('text-gray-700', 'hover:text-primary');
                 } else {
@@ -234,7 +240,8 @@
             // Mobile nav
             document.querySelectorAll('.mobile-menu-item').forEach(link => {
                 const href = link.getAttribute('href');
-                if (href === fileName) {
+                const linkName = href ? href.split('/').pop().replace(/\.html$/, '') : '';
+                if (linkName === fileName) {
                     link.classList.add('text-primary', 'font-semibold');
                 } else {
                     link.classList.remove('text-primary', 'font-semibold');
@@ -267,7 +274,7 @@
                         left: 0;
                         width: 100%;
                         height: 100%;
-                        background: rgba(255,255,255,0.95);
+                        background: var(--bg-primary, #fff);
                         display: flex;
                         justify-content: center;
                         align-items: center;
