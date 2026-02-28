@@ -100,9 +100,6 @@
 
                     // Scroll to top
                     window.scrollTo(0, 0);
-
-                    // Reinitialize components after content update
-                    this.reinitializeComponents();
                 } else {
                     throw new Error('No content received');
                 }
@@ -117,52 +114,6 @@
             }
         }
 
-        reinitializeComponents() {
-            // Ensure theme is applied immediately (fixes dark mode flash on SPA navigation)
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-
-            // Reinitialize portfolio filtering
-            if (typeof initPortfolioFilter === 'function') {
-                initPortfolioFilter();
-            }
-
-            // Reinitialize stat counters
-            if (typeof initStatCounters === 'function') {
-                initStatCounters();
-            }
-
-            // Reinitialize scroll animations
-            if (typeof initScrollAnimations === 'function') {
-                initScrollAnimations();
-            }
-
-            // Reinitialize form handling
-            if (typeof initFormHandling === 'function') {
-                initFormHandling();
-            }
-
-            // Reinitialize mobile menu close on link click
-            this.reinitMobileMenu();
-
-            // Update theme icon to match current theme
-            if (typeof updateThemeIcon === 'function') {
-                updateThemeIcon(savedTheme);
-            }
-        }
-
-        reinitMobileMenu() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenu) {
-                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-                mobileMenuLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                        mobileMenu.classList.remove('show');
-                    });
-                });
-            }
-        }
 
         async fetchPage(path) {
             const controller = new AbortController();
@@ -203,21 +154,19 @@
                 setTimeout(() => {
                     currentMain.innerHTML = newMain.innerHTML;
                     currentMain.style.opacity = '1';
+
+                    // after DOM update, adjust nav and reinit components
+                    this.updateActiveNav(path);
+                    if (typeof window.initPage === 'function') {
+                        window.initPage();
+                    }
                 }, TRANSITION_DURATION);
             }
 
-            // Update page title
+            // Update page title regardless
             const newTitle = doc.querySelector('title');
             if (newTitle) {
                 document.title = newTitle.textContent;
-            }
-
-            // Update active nav link
-            this.updateActiveNav(path);
-
-            // Run page-specific initialization (animations, forms, etc)
-            if (typeof window.initPage === 'function') {
-                window.initPage();
             }
         }
 

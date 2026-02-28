@@ -491,27 +491,6 @@
     <!-- JavaScript -->
     <script src="./js/router.js"></script>
     <script src="./js/main.js"></script>
-    
-    <!-- FAQ Accordion Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const faqToggles = document.querySelectorAll('.faq-toggle');
-            
-            faqToggles.forEach(button => {
-                button.addEventListener('click', () => {
-                    const content = button.nextElementSibling;
-                    const icon = button.querySelector('.faq-icon');
-                    
-                    if (content && content.classList.contains('hidden')) {
-                        content.classList.remove('hidden');
-                        icon.style.transform = 'rotate(180deg)';
-                    } else if (content) {
-                        content.classList.add('hidden');
-                        icon.style.transform = 'rotate(0deg)';
-                    }
-                });
-            });
-        });
-    </script>
+
 </body>
 </html>

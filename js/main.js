@@ -98,11 +98,7 @@ function setActiveNavLink() {
 }
 
 // Smooth Scroll for Navigation Links
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize all page components
-    initPage();
-    
-    // Add smooth scroll to anchor links
+function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -115,7 +111,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-});
+}
+
+// kick off everything when DOM is ready
+// only initPage is needed here; smooth scroll is invoked within initPage itself
+// so that it runs after new content is swapped by the router
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        initPage();
+    });
+} else {
+    initPage();
+}
 
 // Scroll Animations
 function initScrollAnimations() {
@@ -226,6 +233,24 @@ function initFormHandling() {
     });
 }
 
+// FAQ Accordion
+function initFAQ() {
+    const faqToggles = document.querySelectorAll('.faq-toggle');
+    faqToggles.forEach(button => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+            if (content && content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            } else if (content) {
+                content.classList.add('hidden');
+                if (icon) icon.style.transform = 'rotate(0deg)';
+            }
+        });
+    });
+}
+
 // Simulate Form Submission
 async function simulateFormSubmission(data) {
     // Simulate network delay
@@ -323,10 +348,6 @@ function initPortfolioFilter() {
     });
 }
 
-// Initialize all features on load
-document.addEventListener('DOMContentLoaded', () => {
-    initPortfolioFilter();
-});
 
 // Utility functions
 const utils = {
@@ -411,6 +432,8 @@ function initPage() {
     initScrollAnimations();
     initStatCounters();
     initFormHandling();
+    initFAQ();
+    initSmoothScroll();
     initPortfolioFilter();
     initNavScroll();
     attachPortfolioDetailHandlers();
@@ -425,5 +448,7 @@ window.initPortfolioFilter = initPortfolioFilter;
 window.initStatCounters = initStatCounters;
 window.initScrollAnimations = initScrollAnimations;
 window.initFormHandling = initFormHandling;
+window.initFAQ = initFAQ;
+window.initSmoothScroll = initSmoothScroll;
 window.initPage = initPage;
 window.attachPortfolioDetailHandlers = attachPortfolioDetailHandlers;
