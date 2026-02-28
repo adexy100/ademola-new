@@ -691,3 +691,73 @@ body, nav, .card-hover, .testimonial-card, .portfolio-item, .form-input {
     filter: invert(1) grayscale(100%) brightness(1.2);
     opacity: 1;
 }
+
+/* Alert Banner */
+.alert-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    gap: 1rem;
+}
+
+.alert-banner.hidden {
+    display: none;
+}
+
+.alert-banner.success {
+    background: rgba(34, 197, 94, 0.95);
+    border-bottom: 2px solid #22c55e;
+    color: white;
+}
+
+.alert-banner.error {
+    background: rgba(239, 68, 68, 0.95);
+    border-bottom: 2px solid #ef4444;
+    color: white;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .alert-banner.success {
+    background: rgba(34, 197, 94, 0.9);
+}
+
+[data-theme="dark"] .alert-banner.error {
+    background: rgba(239, 68, 68, 0.9);
+}
+
+.alert-banner button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.alert-banner button:hover {
+    opacity: 0.8;
+}
+
+.alert-banner-content {
+    flex: 1;
+}
+
+.alert-banner-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.alert-banner-message {
+    font-size: 0.95rem;
+    opacity: 0.95;
+}
+
+/* Loading state */
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}

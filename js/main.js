@@ -185,52 +185,93 @@ function initStatCounters() {
     });
 }
 
-// Form Handling
+// Form Handling with Formspree
+const FORMSPREE_CONFIG = {
+    endpoint: 'https://formspree.io/f/xgolboen'
+};
+
 function initFormHandling() {
     const forms = document.querySelectorAll('form');
     
     forms.forEach(form => {
-        // Check if this is a Netlify form
-        const isNetlifyForm = form.hasAttribute('data-netlify');
+        // Remove any previous listeners to prevent duplicates on SPA nav
+        form.removeEventListener('submit', handleFormSubmit);
+        form.addEventListener('submit', handleFormSubmit);
+    });
+}
+
+async function handleFormSubmit(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    
+    // Validate required fields
+    if (!form.checkValidity()) {
+        showAlert('error', 'Please fill in all required fields.', 'Validation Error');
+        return;
+    }
+    
+    try {
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = '⏳ Sending...';
         
-        form.addEventListener('submit', async (e) => {
-            // Netlify forms need to be submitted normally to work
-            if (isNetlifyForm) {
-                // Let Netlify handle the form submission
-                return;
-            }
-            
-            e.preventDefault();
-            
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            
-            // Show loading state
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span class="loading"></span> Sending...';
-            
-            // Collect form data
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
-            
-            try {
-                // Simulate form submission (replace with actual endpoint)
-                await simulateFormSubmission(data);
-                
-                // Show success message
-                showMessage(form, 'success', 'Message sent successfully! I\'ll get back to you soon.');
-                form.reset();
-                
-            } catch (error) {
-                // Show error message
-                showMessage(form, 'error', 'Oops! Something went wrong. Please try again.');
-            } finally {
-                // Reset button state
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
+        // Collect form data
+        const formData = new FormData(form);
+        
+        // Post to Formspree
+        const response = await fetch(FORMSPREE_CONFIG.endpoint, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
             }
         });
-    });
+        
+        if (response.ok) {
+            // Show success message
+            showAlert('success', 'Your message has been sent successfully! I\'ll get back to you within 24 hours.', 'Message Sent');
+            
+            // Reset form
+            form.reset();
+            
+            // Auto-dismiss after 5 seconds
+            setTimeout(() => closeAlert(), 5000);
+        } else {
+            throw new Error('Form submission failed');
+        }
+    } catch (error) {
+        console.error('Form error:', error);
+        showAlert('error', 'Something went wrong. Please try again or contact me directly at ademola@example.com', 'Submission Error');
+    } finally {
+        // Reset button state
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+    }
+}
+
+// Alert Banner Management
+function showAlert(type, message, title) {
+    const banner = document.getElementById('alert-banner');
+    if (!banner) return;
+    
+    banner.className = `alert-banner ${type}`;
+    banner.innerHTML = `
+        <div class="alert-banner-content">
+            <div class="alert-banner-title">${title}</div>
+            <div class="alert-banner-message">${message}</div>
+        </div>
+        <button aria-label="Close alert" onclick="closeAlert()">✕</button>
+    `;
+}
+
+function closeAlert() {
+    const banner = document.getElementById('alert-banner');
+    if (banner) {
+        banner.classList.add('hidden');
+    }
 }
 
 // FAQ Accordion
@@ -250,39 +291,6 @@ function initFAQ() {
         });
     });
 }
-
-// Simulate Form Submission
-async function simulateFormSubmission(data) {
-    // Simulate network delay
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            // Simulate 90% success rate
-            if (Math.random() > 0.1) {
-                resolve();
-            } else {
-                reject(new Error('Network error'));
-            }
-        }, 1500);
-    });
-}
-
-// Show Message
-function showMessage(form, type, message) {
-    const existingMessage = form.querySelector('.success-message, .error-message');
-    if (existingMessage) {
-        existingMessage.remove();
-    }
-
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `${type}-message`;
-    messageDiv.textContent = message;
-    
-    form.parentNode.insertBefore(messageDiv, form);
-    
-    // Auto remove after 5 seconds
-    setTimeout(() => {
-        messageDiv.remove();
-    }, 5000);
 }
 
 // Navigation scroll effect
