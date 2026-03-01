@@ -221,7 +221,6 @@ async function handleFormSubmit(e) {
     }
     
     try {
-        console.log('Submitting to', FORMSPREE_CONFIG.endpoint);
         // Show loading state
         submitBtn.disabled = true;
         submitBtn.textContent = '⏳ Sending...';
@@ -237,10 +236,8 @@ async function handleFormSubmit(e) {
                 'Accept': 'application/json'
             }
         });
-        console.log('Fetch completed, status', response.status);
         
         if (response.ok) {
-            console.log('Form submission successful');
             // Show success message
             showAlert('success', 'Your message has been sent successfully! I\'ll get back to you within 24 hours.', 'Message Sent');
             

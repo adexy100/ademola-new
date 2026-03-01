@@ -692,14 +692,45 @@ body, nav, .card-hover, .testimonial-card, .portfolio-item, .form-input {
     opacity: 1;
 }
 
-/* Alert Banner */
+/* Alert Banner - React Toastify Style */
 .alert-banner {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    max-width: 400px;
+    min-width: 300px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-    gap: 1rem;
+    align-items: flex-start;
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    gap: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
 }
 
 .alert-banner.hidden {
@@ -707,24 +738,26 @@ body, nav, .card-hover, .testimonial-card, .portfolio-item, .form-input {
 }
 
 .alert-banner.success {
-    background: rgba(34, 197, 94, 0.95);
-    border-bottom: 2px solid #22c55e;
+    background: #328990;
     color: white;
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
 }
 
 .alert-banner.error {
-    background: rgba(239, 68, 68, 0.95);
-    border-bottom: 2px solid #ef4444;
+    background: #ef4444;
     color: white;
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Dark mode adjustments */
 [data-theme="dark"] .alert-banner.success {
-    background: rgba(34, 197, 94, 0.9);
+    background: #328990;
+    box-shadow: 0 4px 12px rgba(50, 137, 144, 0.3);
 }
 
 [data-theme="dark"] .alert-banner.error {
-    background: rgba(239, 68, 68, 0.9);
+    background: #ef4444;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
 }
 
 .alert-banner button {
@@ -732,14 +765,17 @@ body, nav, .card-hover, .testimonial-card, .portfolio-item, .form-input {
     border: none;
     color: inherit;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     padding: 0;
     line-height: 1;
     flex-shrink: 0;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    margin-top: 2px;
 }
 
 .alert-banner button:hover {
-    opacity: 0.8;
+    opacity: 1;
 }
 
 .alert-banner-content {
@@ -748,12 +784,15 @@ body, nav, .card-hover, .testimonial-card, .portfolio-item, .form-input {
 
 .alert-banner-title {
     font-weight: 600;
-    margin-bottom: 0.25rem;
+    margin-bottom: 4px;
+    font-size: 14px;
+    letter-spacing: -0.3px;
 }
 
 .alert-banner-message {
-    font-size: 0.95rem;
+    font-size: 14px;
     opacity: 0.95;
+    line-height: 1.4;
 }
 
 /* Loading state */

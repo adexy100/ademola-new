@@ -81,7 +81,6 @@
             try {
                 // Show brief loading indicator
                 this.showLoading();
-                console.log('Navigating to:', path);
 
                 // Fetch the new page
                 const content = await this.fetchPage(path);
@@ -96,7 +95,6 @@
                         // push clean URL (without .html). Hosting platforms should have rewrites
                         // configured (see vercel.json) so these paths still serve the right file.
                         window.history.pushState({ path: cleanUrl }, '', cleanUrl);
-                        console.log('URL updated to:', cleanUrl);
                     }
 
                     // Update page content
@@ -126,7 +124,6 @@
             try {
                 // Use absolute path to work correctly with Vercel rewrites
                 const absolutePath = path.startsWith('/') ? path : '/' + path;
-                console.log('Fetching page:', absolutePath);
                 
                 const response = await fetch(absolutePath, { 
                     signal: controller.signal,
@@ -156,8 +153,6 @@
             const newMain = doc.querySelector('main');
             const currentMain = document.querySelector('main');
 
-            console.log('updatePageContent: path=', path, 'newMain=', !!newMain, 'currentMain=', !!currentMain);
-
             if (newMain && currentMain) {
                 // Smooth fade transition
                 currentMain.style.transition = `opacity ${TRANSITION_DURATION}ms ease`;
@@ -168,12 +163,10 @@
                     currentMain.style.opacity = '1';
 
                     // after DOM update, adjust nav and reinit components
-                    console.log('Reinitializing page components...');
                     this.updateActiveNav(path);
                     if (typeof window.initPage === 'function') {
                         try {
                             window.initPage();
-                            console.log('initPage completed successfully');
                         } catch (err) {
                             console.error('Error in initPage:', err);
                         }
