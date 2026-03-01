@@ -81,6 +81,7 @@
             try {
                 // Show brief loading indicator
                 this.showLoading();
+                console.log('Navigating to:', path);
 
                 // Fetch the new page
                 const content = await this.fetchPage(path);
@@ -95,6 +96,7 @@
                         // push clean URL (without .html). Hosting platforms should have rewrites
                         // configured (see vercel.json) so these paths still serve the right file.
                         window.history.pushState({ path: cleanUrl }, '', cleanUrl);
+                        console.log('URL updated to:', cleanUrl);
                     }
 
                     // Update page content
@@ -106,7 +108,7 @@
                     throw new Error('No content received');
                 }
             } catch (error) {
-                console.warn('SPA navigation failed, falling back to normal navigation:', error.message);
+                console.error('SPA navigation failed:', error.message, '- falling back to normal navigation');
                 // Fall back to normal page load
                 window.location.href = path;
                 return;
@@ -122,12 +124,17 @@
             const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT);
 
             try {
-                const response = await fetch(path, { 
+                // Use absolute path to work correctly with Vercel rewrites
+                const absolutePath = path.startsWith('/') ? path : '/' + path;
+                console.log('Fetching page:', absolutePath);
+                
+                const response = await fetch(absolutePath, { 
                     signal: controller.signal,
                     cache: 'no-store'
                 });
 
                 if (!response.ok) {
+                    console.error('Fetch failed with status', response.status, 'for path', absolutePath);
                     throw new Error(`HTTP ${response.status}`);
                 }
 
@@ -136,6 +143,7 @@
 
             } catch (error) {
                 clearTimeout(timeoutId);
+                console.error('Fetch error:', error.message);
                 throw error;
             }
         }
@@ -148,6 +156,8 @@
             const newMain = doc.querySelector('main');
             const currentMain = document.querySelector('main');
 
+            console.log('updatePageContent: path=', path, 'newMain=', !!newMain, 'currentMain=', !!currentMain);
+
             if (newMain && currentMain) {
                 // Smooth fade transition
                 currentMain.style.transition = `opacity ${TRANSITION_DURATION}ms ease`;
@@ -158,11 +168,19 @@
                     currentMain.style.opacity = '1';
 
                     // after DOM update, adjust nav and reinit components
+                    console.log('Reinitializing page components...');
                     this.updateActiveNav(path);
                     if (typeof window.initPage === 'function') {
-                        window.initPage();
+                        try {
+                            window.initPage();
+                            console.log('initPage completed successfully');
+                        } catch (err) {
+                            console.error('Error in initPage:', err);
+                        }
+                    } else {
+                        console.warn('window.initPage is not available');
                     }
-                }, TRANSITION_DURATION);
+                }, TRANSITION_DURATION + 10);
             }
 
             // Update page title regardless

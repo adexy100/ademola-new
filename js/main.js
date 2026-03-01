@@ -197,12 +197,19 @@ function initFormHandling() {
         // Remove any previous listeners to prevent duplicates on SPA nav
         form.removeEventListener('submit', handleFormSubmit);
         form.addEventListener('submit', handleFormSubmit);
+        
+        // Neutralize default action to prevent unintended navigation
+        if (form.hasAttribute('action')) {
+            form.setAttribute('action', '#');
+        }
     });
 }
 
 async function handleFormSubmit(e) {
     e.preventDefault();
-    
+    e.stopPropagation();
+    console.log('handleFormSubmit: start', e.target);
+
     const form = e.target;
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
@@ -210,10 +217,11 @@ async function handleFormSubmit(e) {
     // Validate required fields
     if (!form.checkValidity()) {
         showAlert('error', 'Please fill in all required fields.', 'Validation Error');
-        return;
+        return false;
     }
     
     try {
+        console.log('Submitting to', FORMSPREE_CONFIG.endpoint);
         // Show loading state
         submitBtn.disabled = true;
         submitBtn.textContent = '⏳ Sending...';
@@ -229,8 +237,10 @@ async function handleFormSubmit(e) {
                 'Accept': 'application/json'
             }
         });
+        console.log('Fetch completed, status', response.status);
         
         if (response.ok) {
+            console.log('Form submission successful');
             // Show success message
             showAlert('success', 'Your message has been sent successfully! I\'ll get back to you within 24 hours.', 'Message Sent');
             
@@ -240,6 +250,7 @@ async function handleFormSubmit(e) {
             // Auto-dismiss after 5 seconds
             setTimeout(() => closeAlert(), 5000);
         } else {
+            console.error('Form submission failed (status)', response.status);
             throw new Error('Form submission failed');
         }
     } catch (error) {
@@ -250,6 +261,8 @@ async function handleFormSubmit(e) {
         submitBtn.disabled = false;
         submitBtn.textContent = originalText;
     }
+    
+    return false;
 }
 
 // Alert Banner Management
@@ -257,7 +270,13 @@ function showAlert(type, message, title) {
     const banner = document.getElementById('alert-banner');
     if (!banner) return;
     
-    banner.className = `alert-banner ${type}`;
+    // Remove hidden and previous status classes; preserve positioning
+    banner.classList.remove('hidden', 'success', 'error', 'info', 'warning');
+    if (!banner.classList.contains('alert-banner')) {
+        banner.classList.add('alert-banner');
+    }
+    banner.classList.add(type);
+    
     banner.innerHTML = `
         <div class="alert-banner-content">
             <div class="alert-banner-title">${title}</div>
