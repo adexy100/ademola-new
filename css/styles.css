@@ -695,7 +695,7 @@ body, nav, .card-hover, .testimonial-card, .portfolio-item, .form-input {
 /* Alert Banner - React Toastify Style */
 .alert-banner {
     position: fixed;
-    top: 20px;
+    top: 5rem;
     right: 20px;
     max-width: 400px;
     min-width: 300px;
