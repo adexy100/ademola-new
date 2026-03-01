@@ -92,6 +92,8 @@
 
                     // Update URL
                     if (useHistory) {
+                        // push clean URL (without .html). Hosting platforms should have rewrites
+                        // configured (see vercel.json) so these paths still serve the right file.
                         window.history.pushState({ path: cleanUrl }, '', cleanUrl);
                     }
 

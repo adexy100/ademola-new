@@ -291,7 +291,6 @@ function initFAQ() {
         });
     });
 }
-}
 
 // Navigation scroll effect
 function initNavScroll() {
@@ -431,23 +430,27 @@ function portfolioScrollHandler(e) {
 
 // Centralized page initialization function for SPA navigation
 function initPage() {
-    // Apply theme immediately to prevent flash
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    try {
+        // Apply theme immediately to prevent flash
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
 
-    // Initialize all page components
-    setActiveNavLink();
-    initScrollAnimations();
-    initStatCounters();
-    initFormHandling();
-    initFAQ();
-    initSmoothScroll();
-    initPortfolioFilter();
-    initNavScroll();
-    attachPortfolioDetailHandlers();
+        // Initialize all page components
+        setActiveNavLink();
+        initScrollAnimations();
+        initStatCounters();
+        initFormHandling();
+        initFAQ();
+        initSmoothScroll();
+        initPortfolioFilter();
+        initNavScroll();
+        attachPortfolioDetailHandlers();
 
-    // Update theme icons
-    window.updateThemeIcon(savedTheme);
+        // Update theme icons
+        window.updateThemeIcon(savedTheme);
+    } catch (err) {
+        console.error('Error during page initialization', err);
+    }
 }
 
 // Export functions for SPA router
