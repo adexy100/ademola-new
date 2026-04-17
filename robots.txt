@@ -1,11 +1,11 @@
 # Robots.txt for Ademola A. Website
-# https://ademola-a.com
+# https://ademola.website
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://ademola-a.com/sitemap.xml
+Sitemap: https://ademola.website/sitemap.xml
 
 # Crawl-delay (optional - for respectful crawling)
 Crawl-delay: 1

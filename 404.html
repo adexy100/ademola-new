@@ -1,133 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Apply saved theme immediately to prevent flash -->
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', theme);
-        })();
-    </script>
-    
-    <title>404 - Page Not Found | Ademola A.</title>
-    <meta name="description" content="The page you're looking for doesn't exist. Return to Ademola A. - IT Solutions & Automation Specialist">
+    <script>(function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Page Not Found | Ademola A.</title>
     <meta name="robots" content="noindex, follow">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="404 - Page Not Found | Ademola A.">
-    <meta property="og:description" content="The page you're looking for doesn't exist.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ademola-a.com/404.html">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="404 - Page Not Found">
-    
-    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#328990',
-                        secondary: '#3A65D3',
-                        dark: '#1e293b'
-                    },
-                    fontFamily: {
-                        'inter': ['Inter', 'sans-serif'],
-                        'poppins': ['Poppins', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .font-poppins {
-            font-family: 'Poppins', sans-serif;
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #328990, #3A65D3);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
-<body class="font-inter bg-gray-50">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white shadow-md z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <a href="index.html" data-link class="flex items-center gap-2 text-2xl font-bold font-poppins text-primary">
-                        <img src="./assets/icons/profile teal.png" alt="Logo" class="h-8 w-8 rounded-full object-cover">
-                        Ademola A.
-                    </a>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-primary transition-colors">Home</a>
-                    <a href="about.html" class="text-gray-700 hover:text-primary transition-colors">About</a>
-                    <a href="services.html" class="text-gray-700 hover:text-primary transition-colors">Services</a>
-                    <a href="portfolio.html" class="text-gray-700 hover:text-primary transition-colors">Portfolio</a>
-                    <a href="reviews.html" class="text-gray-700 hover:text-primary transition-colors">Reviews</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-primary transition-colors">Contact</a>
-                </div>
-            </div>
+<body>
+<div id="cursor-dot"></div><div id="cursor-ring"></div>
+<nav id="navbar">
+    <a href="index.html" class="nav-logo" data-link><img src="./assets/icons/profile teal.png" alt="" onerror="this.style.display='none'">Ademola A.</a>
+    <ul class="nav-links">
+        <li><a href="index.html" data-link>Home</a></li><li><a href="about.html" data-link>About</a></li>
+        <li><a href="services.html" data-link>Services</a></li><li><a href="portfolio.html" data-link>Portfolio</a></li>
+        <li><a href="reviews.html" data-link>Reviews</a></li><li><a href="contact.html" data-link>Contact</a></li>
+    </ul>
+    <div class="nav-right">
+        <button class="theme-toggle desktop-only" aria-label="Toggle theme"><svg class="sun-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg><svg class="moon-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg></button>
+        <button id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div id="mobile-menu">
+    <ul class="mobile-nav-links">
+        <li><a href="index.html" data-link>Home <span class="arrow">→</span></a></li>
+        <li><a href="about.html" data-link>About <span class="arrow">→</span></a></li>
+        <li><a href="services.html" data-link>Services <span class="arrow">→</span></a></li>
+        <li><a href="portfolio.html" data-link>Portfolio <span class="arrow">→</span></a></li>
+        <li><a href="reviews.html" data-link>Reviews <span class="arrow">→</span></a></li>
+        <li><a href="contact.html" data-link>Contact <span class="arrow">→</span></a></li>
+    </ul>
+</div>
+<main>
+<section class="not-found-section">
+    <div style="padding:2rem;text-align:center;">
+        <div class="not-found-num hero-animate">404</div>
+        <h1 style="font-size:clamp(1.75rem,4vw,2.75rem);margin-bottom:1rem;letter-spacing:-0.03em;" class="hero-animate">Page not found.</h1>
+        <p style="color:var(--ink-3);font-size:1.05rem;margin-bottom:2.5rem;max-width:420px;margin-left:auto;margin-right:auto;" class="hero-animate">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;" class="hero-animate">
+            <a href="index.html" class="btn btn-primary" data-link>← Go Home</a>
+            <a href="contact.html" class="btn btn-outline" data-link>Contact Me</a>
         </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="min-h-screen flex items-center justify-center pt-16">
-        <div class="text-center px-4">
-            <div class="text-9xl font-bold text-primary mb-4">404</div>
-            <h1 class="text-4xl font-bold font-poppins mb-4">Page Not Found</h1>
-            <p class="text-xl text-gray-600 mb-8 max-w-md mx-auto">
-                Oops! The page you're looking for doesn't exist or has been moved.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="index.html" class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary transition-colors">
-                    Go Home
-                </a>
-                <a href="contact.html" class="border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors">
-                    Contact Me
-                </a>
-            </div>
-            
-            <!-- Quick Links -->
-            <div class="mt-16">
-                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <a href="services.html" class="text-primary hover:underline">Services</a>
-                    <a href="portfolio.html" class="text-primary hover:underline">Portfolio</a>
-                    <a href="reviews.html" class="text-primary hover:underline">Reviews</a>
-                    <a href="contact.html" class="text-primary hover:underline">Contact</a>
-                </div>
-            </div>
+        <div style="margin-top:3rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;" class="hero-animate">
+            <a href="services.html" style="font-size:0.875rem;color:var(--teal);font-weight:600;" data-link>Services</a>
+            <a href="portfolio.html" style="font-size:0.875rem;color:var(--teal);font-weight:600;" data-link>Portfolio</a>
+            <a href="reviews.html" style="font-size:0.875rem;color:var(--teal);font-weight:600;" data-link>Reviews</a>
         </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-400">© 2026 Ademola A. All rights reserved.</p>
-        </div>
-    </footer>
-</body>
-</html>
+    </div>
+</section>
+</main>
+<footer><div class="footer-inner"><div class="footer-logo">Ademola A.</div><div class="footer-copy" style="width:auto;padding:0;border:none;">© 2026 Ademola A. All rights reserved.</div></div></footer>
+<script src="./js/main.js"></script>
+</body></html>
