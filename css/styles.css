@@ -293,6 +293,12 @@ p{color:var(--ink-2);line-height:1.7}
 .contact-key{font-size:.73rem;font-weight:700;color:var(--ink-3);letter-spacing:.04em;text-transform:uppercase;margin-bottom:.2rem}
 .contact-val{font-size:.87rem;color:var(--ink);font-weight:500}
 
+/* ── Schedule Button ───────────────────────────────── */
+.schedule{background-image: linear-gradient(to right, rgb(50, 137, 144), rgb(58, 101, 211));border-radius: 0.75rem;padding: 2rem;color: rgb(255, 255, 255);text-align: center; margin-top: 2rem;}
+.card-title{font-size: 1.25rem;line-height: 1.75rem;font-weight: 700;margin-bottom: 1rem}
+.card-description{margin-bottom: 1.5rem;margin-top: 1rem;line-height: 1.5;color:white}
+
+
 /* ── CTA ───────────────────────────────────── */
 .cta-section{padding:5.5rem clamp(1rem,4vw,2.5rem);background:linear-gradient(135deg,#1a4a50 0%,#1a2e70 100%);position:relative;overflow:hidden;text-align:center}
 .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(50,137,144,.45) 0%,transparent 55%),radial-gradient(ellipse at 80% 50%,rgba(58,101,211,.4) 0%,transparent 55%)}
