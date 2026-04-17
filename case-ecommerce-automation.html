@@ -3,11 +3,11 @@
 <head>
 <script>(function(){const t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t)})()</script>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services | Ademola A. — IT Solutions & Automation</title>
-<meta name="description" content="Comprehensive IT solutions and automation services including workflow automation, CRM, cloud infrastructure, and custom development.">
+<title>E-commerce Operations Automation Case Study | Ademola A.</title>
+<meta name="description" content="E-commerce Operations Automation — A fashion boutique's operations team was drowning in manual work: manually processing orders, emaili">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://ademola.website/services.html">
-<meta property="og:title" content="Services | Ademola A. — IT Solutions & Automation"><meta property="og:type" content="website">
+<link rel="canonical" href="https://ademola.website/case-ecommerce-automation">
+<meta property="og:title" content="E-commerce Operations Automation Case Study | Ademola A."><meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="./css/styles.css">
@@ -18,8 +18,8 @@
     <ul class="nav-links">
         <li><a href="index.html" data-link>Home</a></li>
         <li><a href="about.html" data-link>About</a></li>
-        <li><a href="services.html" data-link  class="active">Services</a></li>
-        <li><a href="portfolio.html" data-link>Portfolio</a></li>
+        <li><a href="services.html" data-link>Services</a></li>
+        <li><a href="portfolio.html" data-link  class="active">Portfolio</a></li>
         <li><a href="reviews.html" data-link>Reviews</a></li>
         <li><a href="contact.html" data-link>Contact</a></li>
     </ul>
@@ -38,105 +38,83 @@
 </div>
 <main>
 
-<section class="page-hero">
+<div class="case-hero">
   <div class="container">
-    <div class="page-hero-lbl hero-animate">What I Offer</div>
-    <h1 class="hero-animate">Services built around <span class="gradient-text">your growth.</span></h1>
-    <p class="hero-animate">Every service is designed to eliminate friction, save time, and accelerate results for your specific situation.</p>
+    <a href="portfolio.html" class="case-back" data-link>← Back to Portfolio</a>
+    <div class="case-meta"><span class="case-tag">Automation</span><span class="case-tag">Integration</span><span class="case-tag">Shopify</span></div>
+    <h1>E-commerce Operations Automation</h1>
+    <p style="font-size:1.05rem;color:var(--ink-3);margin-bottom:1.5rem;">StyleCraft Boutique · Full-Stack Automation</p>
+    <div class="case-stats-bar"><div class="case-stat-item"><span class="case-stat-val">65%</span><div class="case-stat-lbl">Revenue increase</div></div><div class="case-stat-item"><span class="case-stat-val">3 hrs</span><div class="case-stat-lbl">Daily ops saved</div></div><div class="case-stat-item"><span class="case-stat-val">0</span><div class="case-stat-lbl">Manual order steps</div></div></div>
   </div>
-</section>
+</div>
 
 <section class="section" style="background:var(--bg);">
   <div class="container">
-    <div class="services-grid">
-      <div class="svc-card reveal">
-        <span class="svc-tag" style="background:rgba(50,137,144,.1);color:var(--teal);">Automation</span>
-        <div class="svc-ico" style="background:rgba(50,137,144,.1);">⚡</div>
-        <h3>Business Automation</h3>
-        <p>Eliminate repetitive tasks with intelligent workflows that connect your entire stack.</p>
-        <ul class="svc-list"><li>Multi-app workflow automation</li><li>Zapier / n8n / Make.com builds</li><li>Custom trigger-action logic</li><li>Process documentation</li></ul>
-        <a href="contact.html" class="svc-link" data-link>Start a project →</a>
+    <div class="case-layout">
+      <div class="case-body reveal">
+
+        <div class="case-img" style="background:linear-gradient(135deg,#064e3b,#10b981);">
+          <span style="font-size:5rem;">🛍️</span>
+        </div>
+
+        <h2>The Challenge</h2>
+        <p>A fashion boutique's operations team was drowning in manual work: manually processing orders, emailing customers for delivery updates, managing returns by hand, and building email lists from exported CSVs. The founder was spending 3+ hours daily on tasks that could be automated.</p>
+
+        <h2>The Solution</h2>
+        <p>Architected an end-to-end automation layer using Make.com connecting Shopify to Klaviyo, Airtable, and their 3PL. Every order now triggers automatic fulfilment instructions, personalised shipping notifications, post-purchase sequences, and review requests — all without human intervention.</p>
+
+        <div class="case-grid-2">
+          <div class="case-box"><h4>🎯 Primary Goal</h4><p>Eliminate manual bottlenecks and create a scalable, automated workflow that runs reliably without constant oversight.</p></div>
+          <div class="case-box"><h4>⚡ Key Constraint</h4><p>Implementation had to happen without disrupting ongoing operations — a zero-downtime, iterative approach was essential.</p></div>
+        </div>
+
+        <h2>The Outcome</h2>
+        <p>Revenue grew 65% in 3 months, driven by the automated review-request and upsell sequences. Operations overhead dropped from 3 hours to 15 minutes daily. Returns processing time cut from 2 days to 4 hours.</p>
+
+        <div class="case-highlight">
+          <p>"Our e-commerce operations are completely transformed. The automation Ademola built handles everything from order processing to customer follow-ups. Revenue is up 65% in 3 months."</p>
+          <p style="margin-top:.75rem;font-style:normal;font-weight:600;font-size:.85rem;color:var(--teal);">— Sarah Chen, Founder</p>
+        </div>
+
+        <h2>Technical Implementation</h2>
+        <p>The solution was built using a modular architecture ensuring each component could be tested, updated, and scaled independently. Key technical decisions included:</p>
+        <ul>
+          <li>Webhook-first design to ensure real-time data flow with no polling delays</li>
+          <li>Error handling and retry logic at every integration point</li>
+          <li>Comprehensive logging and monitoring for immediate issue detection</li>
+          <li>Documentation and training sessions to ensure client team independence</li>
+        </ul>
+
+        <div class="case-next">
+          <span class="case-next-lbl">Next Project</span>
+          <a href="case-fintech-cloud-migration.html" class="case-next-card" data-link>
+            <div>
+              <h3>FinTech Cloud Migration</h3>
+              <p>FinNext Solutions · AWS Migration & Microservices</p>
+            </div>
+            <span class="cnc-arrow">→</span>
+          </a>
+        </div>
+
       </div>
-      <div class="svc-card reveal reveal-d2">
-        <span class="svc-tag" style="background:rgba(58,101,211,.1);color:var(--blue);">CRM</span>
-        <div class="svc-ico" style="background:rgba(58,101,211,.1);">🎯</div>
-        <h3>CRM & Sales Automation</h3>
-        <p>Turn your CRM into a revenue engine — no deal falls through the cracks.</p>
-        <ul class="svc-list"><li>Lead generation & scoring</li><li>Automated follow-up sequences</li><li>GoHighLevel / HubSpot / Salesforce</li><li>Pipeline reporting</li></ul>
-        <a href="contact.html" class="svc-link" data-link>Start a project →</a>
-      </div>
-      <div class="svc-card reveal reveal-d3">
-        <span class="svc-tag" style="background:rgba(124,58,237,.1);color:#7c3aed;">Development</span>
-        <div class="svc-ico" style="background:rgba(124,58,237,.1);">💻</div>
-        <h3>Custom Software Development</h3>
-        <p>Tailor-made software when off-the-shelf doesn't cut it. Built precisely for your use case.</p>
-        <ul class="svc-list"><li>Custom web applications</li><li>REST API development</li><li>Python automation scripts</li><li>Database architecture</li></ul>
-        <a href="contact.html" class="svc-link" data-link>Start a project →</a>
-      </div>
-      <div class="svc-card reveal">
-        <span class="svc-tag" style="background:rgba(8,145,178,.1);color:#0891b2;">Integration</span>
-        <div class="svc-ico" style="background:rgba(8,145,178,.1);">🔗</div>
-        <h3>System Integration</h3>
-        <p>Connect your disconnected tools into a unified data ecosystem with real-time sync.</p>
-        <ul class="svc-list"><li>Custom API integrations</li><li>Real-time data synchronisation</li><li>Third-party connectors</li><li>Webhook architecture</li></ul>
-        <a href="contact.html" class="svc-link" data-link>Start a project →</a>
-      </div>
-      <div class="svc-card reveal reveal-d2">
-        <span class="svc-tag" style="background:rgba(14,165,233,.1);color:#0ea5e9;">Cloud</span>
-        <div class="svc-ico" style="background:rgba(14,165,233,.1);">☁️</div>
-        <h3>Cloud Infrastructure</h3>
-        <p>Scalable, secure cloud architecture on AWS and Azure designed to grow with your business.</p>
-        <ul class="svc-list"><li>AWS / Azure architecture</li><li>Terraform IaC</li><li>Docker & Kubernetes</li><li>Cloud cost optimisation</li></ul>
-        <a href="contact.html" class="svc-link" data-link>Start a project →</a>
-      </div>
-      <div class="svc-card reveal reveal-d3">
-        <span class="svc-tag" style="background:rgba(220,38,38,.1);color:#dc2626;">Marketing</span>
-        <div class="svc-ico" style="background:rgba(220,38,38,.1);">📧</div>
-        <h3>Email Marketing Automation</h3>
-        <p>Sophisticated drip campaigns that nurture leads and convert customers on autopilot.</p>
-        <ul class="svc-list"><li>Drip sequences & campaigns</li><li>Behavioural trigger emails</li><li>Personalisation & segmentation</li><li>Performance analytics</li></ul>
-        <a href="contact.html" class="svc-link" data-link>Start a project →</a>
-      </div>
-      <div class="svc-card reveal">
-        <span class="svc-tag" style="background:rgba(16,185,129,.1);color:#10b981;">Analytics</span>
-        <div class="svc-ico" style="background:rgba(16,185,129,.1);">📊</div>
-        <h3>Data Analytics & Reporting</h3>
-        <p>Transform raw data into actionable insights with automated dashboards and reports.</p>
-        <ul class="svc-list"><li>Real-time dashboards</li><li>Custom report automation</li><li>KPI tracking & alerting</li><li>Data visualisation</li></ul>
-        <a href="contact.html" class="svc-link" data-link>Start a project →</a>
-      </div>
-      <div class="svc-card reveal reveal-d2">
-        <span class="svc-tag" style="background:rgba(245,158,11,.1);color:#d97706;">Consulting</span>
-        <div class="svc-ico" style="background:rgba(245,158,11,.1);">🗺️</div>
-        <h3>IT Strategy & Consulting</h3>
-        <p>Strategic guidance on where technology can unlock your biggest efficiency gains.</p>
-        <ul class="svc-list"><li>Technology audit</li><li>Automation roadmap</li><li>ROI optimisation</li><li>Team training</li></ul>
-        <a href="contact.html" class="svc-link" data-link>Start a project →</a>
-      </div>
+
+      <aside class="case-sidebar reveal reveal-d2">
+        <div class="case-sidebar-card">
+          <h4>Project Details</h4>
+          <div class="cs-detail"><span class="cs-key">Client</span><span class="cs-val">StyleCraft Boutique</span></div><div class="cs-detail"><span class="cs-key">Industry</span><span class="cs-val">E-commerce / Fashion</span></div><div class="cs-detail"><span class="cs-key">Timeline</span><span class="cs-val">4 weeks</span></div><div class="cs-detail"><span class="cs-key">Year</span><span class="cs-val">2024</span></div>
+        </div>
+        <div class="case-sidebar-card">
+          <h4>Tech Stack</h4>
+          <div class="case-tools"><span class="case-tool-pill">Shopify</span><span class="case-tool-pill">Klaviyo</span><span class="case-tool-pill">Make.com</span><span class="case-tool-pill">Airtable</span><span class="case-tool-pill">Google Sheets</span></div>
+        </div>
+        <div class="case-sidebar-card" style="background:var(--teal-glow);border-color:rgba(50,137,144,.2);">
+          <h4 style="color:var(--teal);">Ready to start?</h4>
+          <p style="font-size:.85rem;color:var(--ink-2);line-height:1.7;margin-bottom:1rem;">Let's discuss a similar solution for your business.</p>
+          <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;" data-link>Book a Free Call</a>
+        </div>
+      </aside>
     </div>
   </div>
-</section>
-
-<section class="section" style="background:var(--bg-2);border-top:1px solid var(--border);">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:3.25rem;">
-      <div class="section-label reveal" style="justify-content:center;">My Process</div>
-      <h2 class="section-title reveal reveal-d1">How every project unfolds.</h2>
-      <p class="section-sub reveal reveal-d2" style="margin:0 auto;">A proven 4-step methodology that delivers consistent, measurable results — every time.</p>
-    </div>
-    <div class="process-steps">
-      <div class="proc-step reveal"><div class="proc-num">1</div><h3>Discovery</h3><p>Deep dive into your workflows, pain points, and goals. Hard questions most consultants skip.</p></div>
-      <div class="proc-step reveal reveal-d1"><div class="proc-num">2</div><h3>Strategy</h3><p>Custom automation roadmap with ROI projections, prioritised by impact and implementation effort.</p></div>
-      <div class="proc-step reveal reveal-d2"><div class="proc-num">3</div><h3>Build</h3><p>Hands-on implementation with rigorous testing, documentation, and full transparency throughout.</p></div>
-      <div class="proc-step reveal reveal-d3"><div class="proc-num">4</div><h3>Support</h3><p>Ongoing monitoring, optimisation, and training. I don't disappear after launch day.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-section reveal">
-  <h2>Not sure which service you need?</h2>
-  <p>Book a free 30-minute call. I'll help you identify exactly where automation can have the biggest impact.</p>
-  <div class="cta-btns"><a href="contact.html" class="btn btn-white" data-link>Schedule Free Consultation →</a></div>
 </section>
 
 </main>
