@@ -193,8 +193,8 @@ p {
   align-items: center;
   gap: .6rem;
   font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  font-size: 1.1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
   letter-spacing: -.03em;
   color: var(--ink);
   flex-shrink: 0
@@ -2168,6 +2168,11 @@ footer {
 
   .theme-toggle.desktop-only {
     display: none
+  }
+
+  .hero-right,
+  .scroll-cue {
+    display: none !important;
   }
 
   #hamburger {
