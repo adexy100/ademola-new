@@ -31,7 +31,7 @@
     raf: null,
     init() {
       if (window.innerWidth <= 1024) return;
-      this.dot  = document.getElementById('cursor-dot');
+      this.dot = document.getElementById('cursor-dot');
       this.ring = document.getElementById('cursor-ring');
       if (!this.dot) return;
       document.addEventListener('mousemove', e => { this.mx = e.clientX; this.my = e.clientY; });
@@ -51,12 +51,12 @@
       this.rx += (this.mx - this.rx) * 0.12;
       this.ry += (this.my - this.ry) * 0.12;
       if (this.dot) {
-        this.dot.style.left  = this.mx + 'px';
-        this.dot.style.top   = this.my + 'px';
+        this.dot.style.left = this.mx + 'px';
+        this.dot.style.top = this.my + 'px';
       }
       if (this.ring) {
         this.ring.style.left = this.rx + 'px';
-        this.ring.style.top  = this.ry + 'px';
+        this.ring.style.top = this.ry + 'px';
       }
       requestAnimationFrame(() => this.loop());
     }
@@ -67,8 +67,8 @@
     navbar: null, ham: null, mob: null,
     init() {
       this.navbar = document.getElementById('navbar');
-      this.ham    = document.getElementById('hamburger');
-      this.mob    = document.getElementById('mobile-menu');
+      this.ham = document.getElementById('hamburger');
+      this.mob = document.getElementById('mobile-menu');
       if (this.navbar) {
         this.scroll();
         window.addEventListener('scroll', () => this.scroll(), { passive: true });
@@ -124,12 +124,12 @@
       const obs = new IntersectionObserver(entries => {
         entries.forEach(e => {
           if (!e.isIntersecting) return;
-          const el  = e.target;
+          const el = e.target;
           const end = parseFloat(el.dataset.count);
           const sfx = el.dataset.suffix || '';
           const dec = el.dataset.count.includes('.') ? 1 : 0;
           const dur = 1800;
-          const t0  = performance.now();
+          const t0 = performance.now();
           const tick = now => {
             const p = Math.min((now - t0) / dur, 1);
             const ease = 1 - Math.pow(1 - p, 3);
@@ -147,7 +147,7 @@
   /* ─ Portfolio filter ───────────────────────────── */
   const Filter = {
     init() {
-      const btns  = document.querySelectorAll('.filter-btn');
+      const btns = document.querySelectorAll('.filter-btn');
       const items = document.querySelectorAll('.port-card[data-category]');
       if (!btns.length || !items.length) return;
 
@@ -197,47 +197,110 @@
   };
 
   /* ─ Contact form ───────────────────────────────── */
-  const Form = {
-    init() {
-      const form = document.getElementById('contact-form');
-      if (!form) return;
-      // If it's a Netlify form, let Netlify handle it
-      if (form.hasAttribute('data-netlify')) return;
+  // Form Handling with Formspree
+  const FORMSPREE_CONFIG = {
+    endpoint: 'https://formspree.io/f/xgolboen'
+  };
 
-      form.addEventListener('submit', async e => {
-        e.preventDefault();
-        const btn  = form.querySelector('button[type="submit"]');
-        const orig = btn.textContent;
-        btn.disabled = true;
-        btn.textContent = 'Sending…';
-        try {
-          await new Promise(r => setTimeout(r, 1200));
-          this.msg(form, 'success', '✓ Message sent! I\'ll reply within 24 hours.');
-          form.reset();
-        } catch {
-          this.msg(form, 'error', 'Something went wrong. Please try again.');
-        } finally {
-          btn.disabled = false;
-          btn.textContent = orig;
+  function initFormHandling() {
+    const forms = document.querySelectorAll('form');
+
+    forms.forEach(form => {
+      // Remove any previous listeners to prevent duplicates on SPA nav
+      form.removeEventListener('submit', handleFormSubmit);
+      form.addEventListener('submit', handleFormSubmit);
+
+      // Neutralize default action to prevent unintended navigation
+      if (form.hasAttribute('action')) {
+        form.setAttribute('action', '#');
+      }
+    });
+  }
+
+  async function handleFormSubmit(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('handleFormSubmit: start', e.target);
+
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+
+    // Validate required fields
+    if (!form.checkValidity()) {
+      showAlert('error', 'Please fill in all required fields.', 'Validation Error');
+      return false;
+    }
+
+    try {
+      // Show loading state
+      submitBtn.disabled = true;
+      submitBtn.textContent = '⏳ Sending...';
+
+      // Collect form data
+      const formData = new FormData(form);
+
+      // Post to Formspree
+      const response = await fetch(FORMSPREE_CONFIG.endpoint, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
         }
       });
-    },
-    msg(form, type, text) {
-      document.querySelectorAll('.form-msg').forEach(m => m.remove());
-      const d = document.createElement('div');
-      d.className = 'form-msg';
-      d.textContent = text;
-      Object.assign(d.style, {
-        padding: '.875rem 1.1rem', borderRadius: '10px', marginBottom: '1rem',
-        fontSize: '.88rem', fontWeight: '500',
-        background: type === 'success' ? 'rgba(16,185,129,.1)' : 'rgba(239,68,68,.1)',
-        color: type === 'success' ? '#059669' : '#dc2626',
-        border: `1px solid ${type === 'success' ? 'rgba(16,185,129,.25)' : 'rgba(239,68,68,.25)'}`
-      });
-      form.parentElement.insertBefore(d, form);
-      setTimeout(() => d.remove(), 6000);
+
+      if (response.ok) {
+        // Show success message
+        showAlert('success', 'Your message has been sent successfully! I\'ll get back to you within 24 hours.', 'Message Sent');
+
+        // Reset form
+        form.reset();
+
+        // Auto-dismiss after 5 seconds
+        setTimeout(() => closeAlert(), 5000);
+      } else {
+        console.error('Form submission failed (status)', response.status);
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form error:', error);
+      showAlert('error', 'Something went wrong. Please try again or contact me directly at ademola@example.com', 'Submission Error');
+    } finally {
+      // Reset button state
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
     }
-  };
+
+    return false;
+  }
+
+  // Alert Banner Management
+  function showAlert(type, message, title) {
+    const banner = document.getElementById('alert-banner');
+    if (!banner) return;
+
+    // Remove hidden and previous status classes; preserve positioning
+    banner.classList.remove('hidden', 'success', 'error', 'info', 'warning');
+    if (!banner.classList.contains('alert-banner')) {
+      banner.classList.add('alert-banner');
+    }
+    banner.classList.add(type);
+
+    banner.innerHTML = `
+        <div class="alert-banner-content">
+            <div class="alert-banner-title">${title}</div>
+            <div class="alert-banner-message">${message}</div>
+        </div>
+        <button aria-label="Close alert" onclick="closeAlert()">✕</button>
+    `;
+  }
+
+  function closeAlert() {
+    const banner = document.getElementById('alert-banner');
+    if (banner) {
+      banner.classList.add('hidden');
+    }
+  }
 
   /* ─ Smooth anchor scroll ───────────────────────── */
   function initAnchors() {
