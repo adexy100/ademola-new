@@ -333,7 +333,9 @@ p {
 #mobile-menu {
   position: fixed;
   top: var(--nav-h);
-  inset: auto 0 0 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: var(--bg);
   z-index: 99;
   padding: 1.5rem 1.75rem 2rem;
@@ -2209,6 +2211,21 @@ footer {
 
   .case-stats-bar {
     gap: 1.5rem
+  }
+
+  .about-teaser-grid {
+    grid-template-columns: 1fr auto !important;
+    gap: 2rem !important;
+    align-items: start !important;
+  }
+
+  .about-teaser-grid > div:last-child {
+    width: 140px;
+    flex-shrink: 0;
+  }
+
+  .about-teaser-grid > div:last-child > div {
+    width: 140px !important;
   }
 }
 

@@ -276,8 +276,13 @@
 
   // Alert Banner Management
   function showAlert(type, message, title) {
-    const banner = document.getElementById('alert-banner');
-    if (!banner) return;
+    let banner = document.getElementById('alert-banner');
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.id = 'alert-banner';
+      banner.className = 'alert-banner hidden';
+      document.body.appendChild(banner);
+    }
 
     // Remove hidden and previous status classes; preserve positioning
     banner.classList.remove('hidden', 'success', 'error', 'info', 'warning');
@@ -321,9 +326,23 @@
     Counter.init();
     Filter.init();
     HeroAnim.init();
-    Form.init();
+    initFormHandling();
     initAnchors();
   }
+
+  /* ─ Page init (called by SPA router after navigation) ── */
+  window.initPage = function () {
+    Nav.setActive();
+    Reveal.init();
+    Counter.init();
+    Filter.init();
+    HeroAnim.init();
+    initFormHandling();
+    initAnchors();
+  };
+
+  /* ─ Expose closeAlert globally for inline onclick ── */
+  window.closeAlert = closeAlert;
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot);
