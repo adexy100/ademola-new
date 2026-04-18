@@ -57,8 +57,12 @@
                 const link = e.target.closest('[data-link]');
                 if (link && !this.isNavigating) {
                     e.preventDefault();
-                    const href = link.getAttribute('href');
-                    if (href && !href.startsWith('#') && !href.startsWith('http') && href.endsWith('.html')) {
+                    let href = link.getAttribute('href');
+                    if (href && !href.startsWith('#') && !href.startsWith('http')) {
+                        // Handle both .html and clean URLs
+                        if (!href.endsWith('.html')) {
+                            href = href.replace(/\/$/, '') + '.html';
+                        }
                         this.navigateTo(href);
                     }
                 }
@@ -82,9 +86,15 @@
                 const content = await this.fetchPage(path);
 
                 if (content) {
+                    // Generate clean URL (without .html)
+                    const cleanPath = path.replace(/\.html$/, '');
+                    const cleanUrl = cleanPath === 'index' || cleanPath === 'index.html' ? '/' : '/' + cleanPath;
+
                     // Update URL
                     if (useHistory) {
-                        window.history.pushState({ path }, '', path);
+                        // push clean URL (without .html). Hosting platforms should have rewrites
+                        // configured (see vercel.json) so these paths still serve the right file.
+                        window.history.pushState({ path: cleanUrl }, '', cleanUrl);
                     }
 
                     // Update page content
@@ -96,7 +106,7 @@
                     throw new Error('No content received');
                 }
             } catch (error) {
-                console.warn('SPA navigation failed, falling back to normal navigation:', error.message);
+                console.error('SPA navigation failed:', error.message, '- falling back to normal navigation');
                 // Fall back to normal page load
                 window.location.href = path;
                 return;
@@ -106,17 +116,22 @@
             }
         }
 
+
         async fetchPage(path) {
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT);
 
             try {
-                const response = await fetch(path, { 
+                // Use absolute path to work correctly with Vercel rewrites
+                const absolutePath = path.startsWith('/') ? path : '/' + path;
+                
+                const response = await fetch(absolutePath, { 
                     signal: controller.signal,
                     cache: 'no-store'
                 });
 
                 if (!response.ok) {
+                    console.error('Fetch failed with status', response.status, 'for path', absolutePath);
                     throw new Error(`HTTP ${response.status}`);
                 }
 
@@ -125,6 +140,7 @@
 
             } catch (error) {
                 clearTimeout(timeoutId);
+                console.error('Fetch error:', error.message);
                 throw error;
             }
         }
@@ -145,26 +161,36 @@
                 setTimeout(() => {
                     currentMain.innerHTML = newMain.innerHTML;
                     currentMain.style.opacity = '1';
-                }, TRANSITION_DURATION);
+
+                    // after DOM update, adjust nav and reinit components
+                    this.updateActiveNav(path);
+                    if (typeof window.initPage === 'function') {
+                        try {
+                            window.initPage();
+                        } catch (err) {
+                            console.error('Error in initPage:', err);
+                        }
+                    } else {
+                        console.warn('window.initPage is not available');
+                    }
+                }, TRANSITION_DURATION + 10);
             }
 
-            // Update page title
+            // Update page title regardless
             const newTitle = doc.querySelector('title');
             if (newTitle) {
                 document.title = newTitle.textContent;
             }
-
-            // Update active nav link
-            this.updateActiveNav(path);
         }
 
         updateActiveNav(path) {
-            const fileName = path.split('/').pop();
+            const fileName = path.split('/').pop().replace(/\.html$/, '');
             
             // Desktop nav
             document.querySelectorAll('.nav-link').forEach(link => {
                 const href = link.getAttribute('href');
-                if (href === fileName) {
+                const linkName = href ? href.split('/').pop().replace(/\.html$/, '') : '';
+                if (linkName === fileName) {
                     link.classList.add('text-primary', 'font-semibold');
                     link.classList.remove('text-gray-700', 'hover:text-primary');
                 } else {
@@ -176,7 +202,8 @@
             // Mobile nav
             document.querySelectorAll('.mobile-menu-item').forEach(link => {
                 const href = link.getAttribute('href');
-                if (href === fileName) {
+                const linkName = href ? href.split('/').pop().replace(/\.html$/, '') : '';
+                if (linkName === fileName) {
                     link.classList.add('text-primary', 'font-semibold');
                 } else {
                     link.classList.remove('text-primary', 'font-semibold');
@@ -185,7 +212,15 @@
         }
 
         reloadCurrentPage() {
-            const path = window.location.pathname.split('/').pop() || 'index.html';
+            let path = window.location.pathname.split('/').pop() || 'index.html';
+            // Handle clean URLs - add .html if missing
+            if (!path.endsWith('.html')) {
+                if (path === '' || path === '/') {
+                    path = 'index.html';
+                } else {
+                    path = path + '.html';
+                }
+            }
             this.navigateTo(path, false);
         }
 
@@ -201,7 +236,7 @@
                         left: 0;
                         width: 100%;
                         height: 100%;
-                        background: rgba(255,255,255,0.95);
+                        background: var(--bg-primary, #fff);
                         display: flex;
                         justify-content: center;
                         align-items: center;
