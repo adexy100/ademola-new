@@ -17,8 +17,6 @@ Crawl-delay: 1
 # Don't crawl these file types
 Disallow: *.json
 Disallow: *.xml
-Disallow: *.js
-Disallow: *.css
 
 # Allow CSS and JS (Google needs these)
 Allow: *.css$
